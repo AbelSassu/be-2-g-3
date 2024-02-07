@@ -1,0 +1,45 @@
+SELECT Count(*) as TotaleOrdini
+  FROM [dbo].[Orders]
+
+SELECT Count(*) as TotaleClienti
+  FROM [dbo].[Customers]
+
+SELECT Count(*) as TotClientiDaLondra
+  FROM [dbo].[Customers]
+  WHERE City LIKE 'London'
+
+SELECT AVG(Freight) as TotSpeseSpedizione
+  FROM [dbo].[Orders]
+
+SELECT AVG(Freight) as TotSpeseSpedizione
+  FROM [dbo].[Orders]
+  WHERE CustomerID LIKE 'BOTTM'
+
+SELECT CustomerID, SUM(Freight) as TotSpeseSpedizione
+  FROM [dbo].[Orders]
+  GROUP BY CustomerID
+
+SELECT City, Count(*) as TotClientiCittà
+  FROM [dbo].[Customers]
+  GROUP BY City
+
+SELECT OrderID, SUM(UnitPrice * Quantity) as TotOrdine
+  FROM [dbo].[Order Details]
+  GROUP BY OrderID
+
+SELECT OrderID, SUM(UnitPrice * Quantity) as TotOrdine
+  FROM [dbo].[Order Details]
+  WHERE OrderID LIKE '10248'
+  GROUP BY OrderID
+
+SELECT CategoryID, Count(*) as TotProducts
+  FROM [dbo].[Products]
+  GROUP BY CategoryID
+
+SELECT ShipCountry, Count(*) as TotCountry
+  FROM [dbo].[Orders]
+  GROUP BY ShipCountry
+
+SELECT ShipCountry, AVG(Freight) as TotCountry
+  FROM [dbo].[Orders]
+  GROUP BY ShipCountry
